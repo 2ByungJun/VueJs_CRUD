@@ -16,9 +16,9 @@ const routes = [
     component: () => import('../views/Main.vue')
   },
   {
-    path: '/searchMovie',
-    name: 'SearchMovie',
-    componet: () => import('../views/SearchMovie.vue')
+    path: '/movie',
+    name: 'Movie',
+    component: () => import('../views/Movie.vue')
   }
 ]
 
