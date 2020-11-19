@@ -1,6 +1,10 @@
-# vue-crud
+# Vue-CRUD
 
 ## HELLO VUE CRUD PROJECT
+
+![](https://images.velog.io/images/ieed0205/post/8855ab0b-153a-4b9d-9228-13fe269a4d6b/crud_start.gif)
+
+---
 
 ## Check List
 - [x] Start Project
@@ -15,4 +19,4 @@
 - ...
 
 ## link
-- 개발환경 : https://sweetlog.netlify.app/vue/using-vue-with-vuex-vue-router-vuetify/
+- 개발환경 : VScode

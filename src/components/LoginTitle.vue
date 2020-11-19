@@ -7,38 +7,42 @@
       lg="6"
     >
       <v-card ref="form">
+        <!-- 입력폼 -->
         <v-card-text>
           <v-text-field
-            ref="id"
             v-model="id"
             :rules="[rules.required, rules.idMax]"
+            :style="color='color'"
             label="아이디"
             placeholder="아이디를 입력해주세요"
             counter="25"
-            required
+            @keyup.enter="loginResult"
             ></v-text-field>
           <v-text-field
-            ref="password"
-            v-model="password"
+            v-model="pw"
             :append-icon="pwShow ? 'mdi-eye' : 'mdi-eye-off'"
+            @click:append="pwShow = !pwShow"
             :rules="[rules.required]"
             :type="pwShow ? 'text' : 'password'"
             label="비밀번호"
             placeholder="비밀번호를 입력해주세요"
-            @click:append="pwShow = !pwShow"
+            @keyup.enter="loginResult"
             ></v-text-field>
         </v-card-text>
         <v-divider class="mt-12"></v-divider>
+        <!-- 버튼 -->
         <v-card-actions>
-          <v-btn
-            color="primary"
-            text
-            @click="submit"
-          >로그인</v-btn>
+          <v-btn @click="loginResult" @keydown.enter="loginResult">로그인</v-btn>
           <v-spacer></v-spacer>
-          <v-btn text>회원가입</v-btn>
+          <v-btn @click="Register">회원가입</v-btn>
         </v-card-actions>
       </v-card>
+      <v-alert
+      :value="alert"
+      type="warning"
+      border="top"
+    >아이디와 비밀번호를 확인해주세요.
+    </v-alert>
     </v-col>
   </v-row>
 </template>
@@ -47,16 +51,51 @@
 export default {
     data () {
       return {
+        id: '',
+        pw: '',
         pwShow : false,
+        color : 'red',
         rules: {
-          required: value => !!value || '필수항목 입니다.',
+          required: value => !! value || '필수항목 입니다.',
           idMax: v => v.length <= 25 || '아이디는 25자 이내입니다.',
         },
+        alert : false,
       }
     },
+    methods:{
+      loginResult(){
+        console.log( 'id : ' + this.id + ',pw : ' + this.pw )
+        // 입력이 없을 때
+        // ! this.pw = true
+        // !! this.pw = false
+        if(!!this.id && !!this.pw){
+          if(this.id =="admin" && this.pw == "1234"){
+            console.log("로그인 성공")
+          }else{
+            this.alert = 'true'
+            setTimeout(() => {
+            this.alert = 'false'
+          }, 2000)
+          }
+        }else{
+          this.alert = 'true'
+          setTimeout(() => {this.alert = 'false' }, 2000)
+        }
+      },
+      Register(){
+        console.log("회원가입 이동")
+      },
+      alertFalse(){
+        setTimeout(() => {this.alert = 'false' }, 2000)
+      }
+    }
 }
 </script>
 
 <style>
+.v-messages__message{
+  color:red;
+  font-weight: bold;
+}
 
 </style>
