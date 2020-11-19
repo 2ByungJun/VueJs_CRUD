@@ -1,12 +1,12 @@
 <template>
-  <div id="app">
+  <v-app id="app">
     <div id="nav">
       <router-link to="/">Login</router-link> |
       <router-link to="/main">Main</router-link> |
       <router-link to="/movie">Movie</router-link>
     </div>
     <router-view/>
-  </div>
+  </v-app>
 </template>
 
 <style>

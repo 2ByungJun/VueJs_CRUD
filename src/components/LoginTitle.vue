@@ -32,17 +32,27 @@
         <v-divider class="mt-12"></v-divider>
         <!-- 버튼 -->
         <v-card-actions>
-          <v-btn @click="loginResult" @keydown.enter="loginResult">로그인</v-btn>
+          <v-btn 
+          depressed
+          color="primary" 
+          @click="loginResult" 
+          @keydown.enter="loginResult"
+          >로그인
+          </v-btn>
           <v-spacer></v-spacer>
-          <v-btn @click="Register">회원가입</v-btn>
+          <v-btn 
+          depressed
+          color="error" 
+          @click="register"
+          >회원가입
+          </v-btn>
         </v-card-actions>
       </v-card>
       <v-alert
-      :value="alert"
-      type="warning"
-      border="top"
-    >아이디와 비밀번호를 확인해주세요.
-    </v-alert>
+        dense
+        type="info"
+      >아이디와 비밀번호를 확인해주세요.
+      </v-alert>
     </v-col>
   </v-row>
 </template>
@@ -73,29 +83,19 @@ export default {
             console.log("로그인 성공")
           }else{
             this.alert = 'true'
-            setTimeout(() => {
-            this.alert = 'false'
-          }, 2000)
           }
         }else{
           this.alert = 'true'
-          setTimeout(() => {this.alert = 'false' }, 2000)
         }
       },
-      Register(){
+      register(){
         console.log("회원가입 이동")
       },
-      alertFalse(){
-        setTimeout(() => {this.alert = 'false' }, 2000)
-      }
     }
 }
 </script>
 
 <style>
-.v-messages__message{
-  color:red;
-  font-weight: bold;
-}
+
 
 </style>
