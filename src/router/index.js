@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../views/Login.vue'
+import Main from '../views/Main.vue'
+import Movie from '../views/Movie.vue'
 
 Vue.use(VueRouter)
 
@@ -13,12 +15,12 @@ const routes = [
   {
     path: '/main',
     name: 'Main',
-    component: () => import('../views/Main.vue')
+    component: Main
   },
   {
     path: '/movie',
     name: 'Movie',
-    component: () => import('../views/Movie.vue')
+    component: Movie
   }
 ]
 

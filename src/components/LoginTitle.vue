@@ -35,8 +35,8 @@
           <v-btn 
           depressed
           color="primary" 
-          @click="loginResult" 
-          @keydown.enter="loginResult"
+          @click="loginCheck" 
+          @keydown.enter="loginCheck"
           >로그인
           </v-btn>
           <v-spacer></v-spacer>
@@ -58,6 +58,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
     data () {
       return {
@@ -90,6 +92,12 @@ export default {
       },
       register(){
         console.log("회원가입 이동")
+      },
+      loginCheck(){
+        console.log("loginCheck")
+        axios.get('/api/loginCheck').then(res => {
+          console.log(res)
+        })
       },
     }
 }

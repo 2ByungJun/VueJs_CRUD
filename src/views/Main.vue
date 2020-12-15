@@ -1,12 +1,17 @@
 <template>
   <div class="Main">
     <h1>Main</h1>
+    <MainPrduct />
   </div>
 </template>
 
 <script>
-export default {
+import MainPrduct from '../components/MainPrduct.vue'
 
+export default {
+  components:{
+    MainPrduct
+  }
 }
 </script>
 
