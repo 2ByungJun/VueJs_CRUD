@@ -12,7 +12,12 @@ module.exports = {
                 target: 'http://localhost:8080/sfc',
                 ws: false,
                 changeOrigin: true,
-            }
+            },
+            '/common': {
+              target: 'http://localhost:8080/sfc',
+              ws: false,
+              changeOrigin: true,
+          }
     }
   }
 }

@@ -88,7 +88,7 @@ export default {
       },
       loginCheck(){
         console.log("---loginCheck---")
-        axios.post('/sfc/user/userIdCheck.json', { // 로그인 검증 컨트롤러를 타야함
+        axios.post('/common/user/login.json', { // 로그인 검증 컨트롤러를 타야함
           userId: this.id,
           passwd: this.pw
         }).then(res => {
@@ -96,7 +96,7 @@ export default {
           if(res.data.data == 'SUCCESS'){
             this.loginChk = true
             this.alertText = "로그인에 성공하셨습니다."
-          }else{
+          }else{ // 현재 틀리는 경우는 JAVA 자체의 에러가 발생함(test 프로젝트기에 생략)
             this.loginChk = false
             this.alertText = "아이디와 비밀번호를 확인해주세요."
           }

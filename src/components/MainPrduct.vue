@@ -6,10 +6,6 @@
             :items-per-page="10"
             class="elevation-1"
         ></v-data-table>
-        <v-btn
-            color="primary"
-            @click="clickMe">등록
-        </v-btn>
     </div>
 </template>
 
