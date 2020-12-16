@@ -6,38 +6,41 @@
             :items-per-page="10"
             class="elevation-1"
         ></v-data-table>
-        <p>{{textP}}</p>
-        <button type="button" @click="clickMe">aa</button>
+        <v-btn
+            color="primary"
+            @click="clickMe">등록
+        </v-btn>
     </div>
 </template>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
 import axios from 'axios';
 
 export default {
-     data () {
-      return {
+    data () {
+        return {
         dataList: "",
-        textP: "기존 글 입니다.",
         headers: [
-          {
+            {
             text: '제품번호',
             align: 'start',
             sortable: false,
             value: 'prductNo',
-          },
-          { text: '제품명', value: 'prductNm' },
-          { text: '구분', value: 'prductSeNm' },
-          { text: 'rox 여부', value: 'roxInclsAt' },
-          { text: 'mix 여부', value: 'msmixInclasAt' },
-          { text: '가격', value: 'prductPc' },
+            },
+            { text: '제품명', value: 'prductNm' },
+            { text: '구분', value: 'prductSeNm' },
+            { text: 'rox 여부', value: 'roxInclsAt' },
+            { text: 'mix 여부', value: 'msmixInclasAt' },
+            { text: '가격', value: 'prductPc' },
         ],
         desserts: [],
         }
     },
     created(){
-        axios.post('/sfc/prduct/selectPrductList.json').then(res => {
+        axios.post('/sfc/prduct/selectPrductList.json', {
+            prductNo : "2222222222222222222222",
+            prductNm : "이병준"
+        }).then(res => {
             var data = res.data.data;
             console.log(data)
             this.desserts = data
@@ -45,12 +48,8 @@ export default {
     },
     methods:{
         clickMe(){
-            this.textP = "안녕?"
+            console.log("등록")
         }
     }
 }
 </script>
-
-<style>
-    
-</style>

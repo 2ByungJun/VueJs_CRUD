@@ -9,10 +9,10 @@ module.exports = {
         hotOnly: true,
         proxy: { // proxyTable 설정
             '/sfc': {
-                target: 'http://localhost:8080/sfc/',
+                target: 'http://localhost:8080/sfc',
                 ws: false,
-                changeOrigin: true
-       }
+                changeOrigin: true,
+            }
     }
   }
 }

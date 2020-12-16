@@ -16,8 +16,7 @@
             label="아이디"
             placeholder="아이디를 입력해주세요"
             counter="25"
-            @keyup.enter="loginResult"
-            ></v-text-field>
+            >{{id}}</v-text-field>
           <v-text-field
             v-model="pw"
             :append-icon="pwShow ? 'mdi-eye' : 'mdi-eye-off'"
@@ -26,8 +25,7 @@
             :type="pwShow ? 'text' : 'password'"
             label="비밀번호"
             placeholder="비밀번호를 입력해주세요"
-            @keyup.enter="loginResult"
-            ></v-text-field>
+            >{{pw}}</v-text-field>
         </v-card-text>
         <v-divider class="mt-12"></v-divider>
         <!-- 버튼 -->
@@ -35,8 +33,8 @@
           <v-btn 
           depressed
           color="primary" 
-          @click="loginCheck" 
-          @keydown.enter="loginCheck"
+          @click="loginResult" 
+          @keydown.enter="loginResult"
           >로그인
           </v-btn>
           <v-spacer></v-spacer>
@@ -51,7 +49,7 @@
       <v-alert
         dense
         type="info"
-      >아이디와 비밀번호를 확인해주세요.
+      >{{alertText}}
       </v-alert>
     </v-col>
   </v-row>
@@ -63,8 +61,8 @@ import axios from 'axios';
 export default {
     data () {
       return {
-        id: '',
-        pw: '',
+        id: 'admin',
+        pw: '1234',
         pwShow : false,
         color : 'red',
         rules: {
@@ -72,33 +70,57 @@ export default {
           idMax: v => v.length <= 25 || '아이디는 25자 이내입니다.',
         },
         alert : false,
+        alertText : '로그인 버튼을 눌러주세요.',
+        loginChk : false
       }
     },
     methods:{
       loginResult(){
-        console.log( 'id : ' + this.id + ',pw : ' + this.pw )
+        console.log("---loginResult---")
         // 입력이 없을 때
         // ! this.pw = true
         // !! this.pw = false
         if(!!this.id && !!this.pw){
-          if(this.id =="admin" && this.pw == "1234"){
-            console.log("로그인 성공")
-          }else{
-            this.alert = 'true'
-          }
+          this.loginCheck()
         }else{
-          this.alert = 'true'
+          console.log("미입력")
         }
+      },
+      loginCheck(){
+        console.log("---loginCheck---")
+        axios.post('/sfc/user/userIdCheck.json', { // 로그인 검증 컨트롤러를 타야함
+          userId: this.id,
+          passwd: this.pw
+        }).then(res => {
+          console.log(res.data)
+          if(res.data.data == 'SUCCESS'){
+            this.loginChk = true
+            this.alertText = "로그인에 성공하셨습니다."
+          }else{
+            this.loginChk = false
+            this.alertText = "아이디와 비밀번호를 확인해주세요."
+          }
+        })
       },
       register(){
         console.log("회원가입 이동")
       },
-      loginCheck(){
-        console.log("loginCheck")
-        axios.get('/api/loginCheck').then(res => {
-          console.log(res)
+/*       IdCheck(){
+        console.log("---loginCheck---")
+        axios.post('/sfc/user/userIdCheck.json', {
+          userId: this.id,
+          passwd: this.pw
+        }).then(res => {
+          console.log(res.data)
+          if(res.data.data == 'SUCCESS'){
+            this.IdChk = true
+            this.alertText = "사용가능한 아이디입니다."
+          }else{
+            this.IdChk = false
+            this.alertText = "사용할 수 없는 아이디입니다."
+          }
         })
-      },
+      }, */
     }
 }
 </script>
