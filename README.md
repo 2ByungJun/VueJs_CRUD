@@ -2,7 +2,7 @@
 
 ## HELLO VUE CRUD PROJECT
 
-![](https://images.velog.io/images/ieed0205/post/8855ab0b-153a-4b9d-9228-13fe269a4d6b/crud_start.gif)
+![](https://images.velog.io/images/ieed0205/post/59c878f6-3331-4043-b207-6d5d7bea1073/%EB%85%B9%ED%99%94_2020_12_16_13_46_57_964.gif)
 
 ---
 
@@ -11,11 +11,11 @@
 - [x] Vuex
 - [x] Vuetify
 - [x] Vue-router
-- [ ] Vue Login
-- [ ] Vue Create
-- [ ] Vue Read
-- [ ] Vue Update
-- [ ] Vue Delete
+- [x] Vue Login
+- [x] Vue Create
+- [x] Vue Read
+- [x] Vue Update
+- [x] Vue Delete
 - ...
 
 ## link
