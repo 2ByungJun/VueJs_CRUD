@@ -13,7 +13,7 @@
     ></v-text-field>
 
     <v-text-field
-        v-model="url"
+        v-model="link"
         :rules="urlRules"
         label="URL"
         required
@@ -48,8 +48,8 @@ export default {
             v => !!v || '메뉴명은 필수입니다.',
             v => (v && v.length <= 6) || '최대 6자까지 가능합니다.',
         ],
-        url: '',
-        urlRules: [
+        link: '',
+        linkRules: [
             v => !!v || 'URL은 필수입니다.',
         ],
         items: [],
@@ -72,7 +72,7 @@ export default {
             this.$store.commit('menu/pushIntoItems', {
                     title : this.name,
                     icon : 'mdi-menu',
-                    link : this.url
+                    link : this.link
             })
         }
     },

@@ -8,7 +8,7 @@
                         large
                         left
                     >
-                        mdi-plus
+                        mdi-comment-plus-outline
                     </v-icon>
                     <span class="title font-weight-light">메뉴 추가</span>
                 </v-card-title>
@@ -24,12 +24,12 @@
                         large
                         left
                     >
-                        mdi-twitter
+                        mdi-comment-edit-outline
                     </v-icon>
-                    <span class="title font-weight-light">Twitter</span>
+                    <span class="title font-weight-light">메뉴 수정</span>
                 </v-card-title>
                 <v-card-text>
-                    
+                    <UpdateMenu />
                 </v-card-text>
                 </v-responsive>
             </v-card>
@@ -37,7 +37,9 @@
 </template>
 
 <script>
-import AddMenu from '../components/AddMenu.vue'
+
+import AddMenu from '../components/setting/AddMenu.vue'
+import UpdateMenu from '../components/setting/UpdateMenu.vue'
 
 export default {
     data(){
@@ -49,6 +51,7 @@ export default {
     },
     components:{
         AddMenu,
+        UpdateMenu,
     }
 }
 </script>

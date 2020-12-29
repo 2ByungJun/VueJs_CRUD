@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import LoginTitle from '../components/LoginTitle.vue'
+import LoginTitle from '../components/login/LoginTitle.vue'
 
 export default {
   components: {

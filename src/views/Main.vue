@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import MainPrduct from '../components/MainPrduct.vue'
+import MainPrduct from '../components/product/MainPrduct.vue'
 
 export default {
   components:{
