@@ -39,14 +39,9 @@
 
 <script>
 export default {
-    data () {
-        return {
-        items: [
-            { title: '로그인', icon: 'mdi-account-outline ', link: '/' },
-            { title: '제품', icon: 'mdi-animation', link: '/main' },
-            { title: '영화검색', icon: 'mdi-cloud-search', link: '/movie' },
-            { title: '설정', icon: 'mdi-settings', link: '/setting' },
-        ],
+    computed: {
+        items(){
+            return this.$store.state.menu.items
         }
     },
 }

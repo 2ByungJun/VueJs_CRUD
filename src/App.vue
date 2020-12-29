@@ -1,17 +1,14 @@
 <template>
   <v-app>
-    <!-- <div id="nav">
-      <router-link to="/">Login</router-link> |
-      <router-link to="/main">Main</router-link> |
-      <router-link to="/movie">Movie</router-link>
-    </div> -->
-    <div :style="display">
+    <div class="display">
       <!-- Menu -->
-      <div :style="menu">
-        <Menu />
+      <div class="menuArea">
+        <div class="menu">
+          <Menu />
+        </div>
       </div>
       <!-- Content -->
-      <div :style="content">
+      <div class="content">
         <router-view/>
       </div>
     </div>
@@ -22,24 +19,6 @@
 import Menu from '../src/views/Menu.vue'
 
 export default {
-  data(){
-    return {
-      display: {
-        display: 'inline-flex',
-        width: '90%',
-        height: '90%',
-        alignSelf: 'center',
-        margin: '20px',
-      },
-      menu: {
-        
-      },
-      content:{
-        width: '100%',
-        //alignSelf: 'center'
-      }
-    }
-  },
   components:{
     Menu,
   }
@@ -49,5 +28,22 @@ export default {
 <style>
   h1{
     text-align: center;
+  }
+  div.display{
+    display: inline-flex;
+    width: 90%;
+    height: 90%;
+    align-self: center;
+    margin: 20px;
+  }
+  div.menuArea{
+    width: 20%
+  }
+  div.menu{
+    width: 18%;
+    position: fixed;
+  }
+  div.content{
+    width: 80%
   }
 </style>

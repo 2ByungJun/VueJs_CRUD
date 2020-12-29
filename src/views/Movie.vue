@@ -1,6 +1,6 @@
 <template>
   <div class="movie container">
-    <h1>Movie</h1>
+    <h1>영화검색</h1>
     <br>
     <SearchBar />
     <MovieList />
