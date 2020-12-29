@@ -19,7 +19,7 @@
                 <v-dialog
                     v-model="dialog"
                     max-width="500px"
-                    >
+                >
                     <template v-slot:activator="{ on, attrs }">
                         <v-btn
                         color="primary"
@@ -122,6 +122,7 @@
                         </v-card-actions>
                     </v-card>
                 </v-dialog>
+
                 <v-dialog v-model="dialogDelete" max-width="500px">
                     <v-card>
                         <v-card-title class="headline">Are you sure you want to delete this item?</v-card-title>
@@ -135,6 +136,7 @@
                 </v-dialog>
             </v-toolbar>
         </template>
+
         <template v-slot:item.actions="{ item }">
             <v-icon
                 small
@@ -158,6 +160,7 @@
                 Reset
             </v-btn>
         </template>
+
     </v-data-table>
 </template>
 
@@ -243,7 +246,7 @@ export default {
             this.editedItem = Object.assign({}, item)
             this.dialogDelete = true
         },
-
+        /// 삭제완료시, 실행
         deleteItemConfirm () {
             this.desserts.splice(this.editedIndex, 1)
             this.closeDelete()
@@ -253,16 +256,16 @@ export default {
         close () {
             this.dialog = false
             this.$nextTick(() => {
-            this.editedItem = Object.assign({}, this.defaultItem)
-            this.editedIndex = -1
+                this.editedItem = Object.assign({}, this.defaultItem)
+                this.editedIndex = -1
             })
         },
         /// 삭제 팝업에서 취소하는 경우 실행
         closeDelete () {
             this.dialogDelete = false
             this.$nextTick(() => {
-            this.editedItem = Object.assign({}, this.defaultItem)
-            this.editedIndex = -1
+                this.editedItem = Object.assign({}, this.defaultItem)
+                this.editedIndex = -1
             })
         },
 

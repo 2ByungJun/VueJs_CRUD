@@ -1,33 +1,53 @@
 <template>
-  <v-app id="app">
-    <div id="nav">
+  <v-app>
+    <!-- <div id="nav">
       <router-link to="/">Login</router-link> |
       <router-link to="/main">Main</router-link> |
       <router-link to="/movie">Movie</router-link>
+    </div> -->
+    <div :style="display">
+      <!-- Menu -->
+      <div :style="menu">
+        <Menu />
+      </div>
+      <!-- Content -->
+      <div :style="content">
+        <router-view/>
+      </div>
     </div>
-    <router-view/>
   </v-app>
 </template>
 
+<script>
+import Menu from '../src/views/Menu.vue'
+
+export default {
+  data(){
+    return {
+      display: {
+        display: 'inline-flex',
+        width: '90%',
+        height: '90%',
+        alignSelf: 'center',
+        margin: '20px',
+      },
+      menu: {
+        
+      },
+      content:{
+        width: '100%',
+        //alignSelf: 'center'
+      }
+    }
+  },
+  components:{
+    Menu,
+  }
+}
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+  h1{
+    text-align: center;
+  }
 </style>
