@@ -5,9 +5,9 @@
       <div class="menuArea">
         <div class="menu">
           <v-img
-            src="../img/logo.png"
-            max-height="84"
-            max-width="100"
+            src="@/img/logo.png"
+            max-height="100"
+            max-width="130"
           ></v-img>
           <Menu />
         </div>
