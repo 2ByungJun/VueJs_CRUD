@@ -1,6 +1,5 @@
 <template>
   <div class="main container">
-    <h1>제품</h1>
     <MainPrduct />
   </div>
 </template>

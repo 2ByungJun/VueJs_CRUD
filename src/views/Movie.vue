@@ -1,7 +1,5 @@
 <template>
   <div class="movie container">
-    <h1>영화검색</h1>
-    <br>
     <SearchBar />
     <MovieList />
   </div>

@@ -5,6 +5,7 @@ import Main from '../views/Main.vue'
 import Movie from '../views/Movie.vue'
 import Setting from '../views/Setting.vue'
 import Way from '../views/Way.vue'
+import Introduce from '../views/Introduce.vue'
 
 Vue.use(VueRouter)
 
@@ -33,6 +34,11 @@ const routes = [
     path: '/way',
     name: 'Way',
     component: Way
+  },
+  {
+    path: '/introduce',
+    name: 'Introduce',
+    component: Introduce
   }
 ]
 

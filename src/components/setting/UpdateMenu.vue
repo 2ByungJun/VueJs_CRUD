@@ -40,21 +40,13 @@
                     </v-col>
                     <v-col
                     cols="12"
-                    sm="6"
+                    sm="12"
                     md="4"
                     >
-                    </v-col>
-                    <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                    >
-                    </v-col>
-                    <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                    >
+                    <v-text-field
+                        v-model="editedItem.etc"
+                        label="비고"
+                    ></v-text-field>
                     </v-col>
                 </v-row>
                 </v-container>
@@ -130,6 +122,7 @@ export default {
         value: 'title',
         },
         { text: 'URL', value: 'link' },
+        { text: '비고', value: 'etc' },
         { text: '수정/삭제', value: 'actions', sortable: false },
     ],
     desserts: [],
@@ -137,12 +130,14 @@ export default {
     editedItem: {
         title: '',
         link: '',
-        icon: ''
+        icon: '',
+        etc: ''
     },
     defaultItem: {
         title: '',
         link: '',
-        icon: ''
+        icon: '',
+        etc: ''
     },
     }),
 

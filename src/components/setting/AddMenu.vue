@@ -19,6 +19,11 @@
         required
     ></v-text-field>
 
+    <v-text-field
+        v-model="etc"
+        label="비고"
+    ></v-text-field>
+
     <v-btn
         :disabled="!valid"
         color="success"
@@ -58,6 +63,7 @@ export default {
             icon: '',
             link: ''
         },
+        etc: '',
     }),
     methods: {
         validate () {
@@ -72,7 +78,8 @@ export default {
             this.$store.commit('menu/pushIntoItems', {
                     title : this.name,
                     icon : 'mdi-menu',
-                    link : this.link
+                    link : this.link,
+                    etc : this.etc
             })
         }
     },
