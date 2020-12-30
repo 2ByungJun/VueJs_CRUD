@@ -4,6 +4,7 @@ import Login from '../views/Login.vue'
 import Main from '../views/Main.vue'
 import Movie from '../views/Movie.vue'
 import Setting from '../views/Setting.vue'
+import Way from '../views/Way.vue'
 
 Vue.use(VueRouter)
 
@@ -27,6 +28,11 @@ const routes = [
     path: '/setting',
     name: 'Setting',
     component: Setting
+  },
+  {
+    path: '/way',
+    name: 'Way',
+    component: Way
   }
 ]
 

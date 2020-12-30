@@ -4,6 +4,11 @@
       <!-- Menu -->
       <div class="menuArea">
         <div class="menu">
+          <v-img
+            src="../img/logo.png"
+            max-height="84"
+            max-width="100"
+          ></v-img>
           <Menu />
         </div>
       </div>

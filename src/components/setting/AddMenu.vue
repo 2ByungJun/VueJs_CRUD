@@ -14,7 +14,7 @@
 
     <v-text-field
         v-model="link"
-        :rules="urlRules"
+        :rules="linkRules"
         label="URL"
         required
     ></v-text-field>

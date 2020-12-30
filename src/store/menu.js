@@ -6,6 +6,7 @@ export default {
             { title: '제품', icon: 'mdi-animation', link: '/main' },
             { title: '영화검색', icon: 'mdi-cloud-search', link: '/movie' },
             { title: '설정', icon: 'mdi-settings', link: '/setting' },
+            { title: '오시는길', icon: 'mdi-map', link: '/way'},
         ],
     }),
     mutations: {
