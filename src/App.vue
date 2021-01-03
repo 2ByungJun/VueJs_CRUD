@@ -2,11 +2,11 @@
   <v-app>
 
     <div class="layout-top">
-      <v-img
+      <!-- <v-img
         src="@/img/banner.png"
         max-height="200"
         max-width="50%"
-      ></v-img>
+      ></v-img> -->
     </div>
 
     <div class="layout-center">

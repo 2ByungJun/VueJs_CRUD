@@ -105,22 +105,22 @@ export default {
       register(){
         console.log("회원가입 이동")
       },
-/*       IdCheck(){
-        console.log("---loginCheck---")
-        axios.post('/sfc/user/userIdCheck.json', {
-          userId: this.id,
-          passwd: this.pw
-        }).then(res => {
-          console.log(res.data)
-          if(res.data.data == 'SUCCESS'){
-            this.IdChk = true
-            this.alertText = "사용가능한 아이디입니다."
-          }else{
-            this.IdChk = false
-            this.alertText = "사용할 수 없는 아이디입니다."
-          }
-        })
-      }, */
+      // IdCheck(){
+      //   console.log("---loginCheck---")
+      //   axios.post('/sfc/user/userIdCheck.json', {
+      //     userId: this.id,
+      //     passwd: this.pw
+      //   }).then(res => {
+      //     console.log(res.data)
+      //     if(res.data.data == 'SUCCESS'){
+      //       this.IdChk = true
+      //       this.alertText = "사용가능한 아이디입니다."
+      //     }else{
+      //       this.IdChk = false
+      //       this.alertText = "사용할 수 없는 아이디입니다."
+      //     }
+      //   })
+      // },
     }
 }
 </script>
