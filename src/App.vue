@@ -31,7 +31,7 @@ import Menu from '../src/views/Menu.vue'
 export default {
   components:{
     Menu,
-  }
+  },
 }
 </script>
 

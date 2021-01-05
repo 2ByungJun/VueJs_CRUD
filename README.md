@@ -13,6 +13,12 @@ link : https://velog.io/@ieed0205/1-Vue-crud-Project
 - PostgreSQL
 
 ## Check List
+2021-01-05
+- [x] Spring boot server 구축
+- [x] Spring boot mybatis 연동
+- [x] DB x vue 연결
+
+2020-12
 - [x] Start Project
 - [x] Vuex
 - [x] Vuetify
@@ -24,7 +30,7 @@ link : https://velog.io/@ieed0205/1-Vue-crud-Project
 - [x] Vue Delete
 - [x] KakaoMap API
 - [x] Vue fixed Kategory
-- [ ] Facebook graph API
+- [x] Facebook graph API
 
 ## IMG
 
