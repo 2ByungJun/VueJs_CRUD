@@ -20,6 +20,11 @@
     ></v-text-field>
 
     <v-text-field
+        v-model="icon"
+        label="아이콘"
+    ></v-text-field>
+
+    <v-text-field
         v-model="etc"
         label="비고"
     ></v-text-field>
@@ -63,6 +68,7 @@ export default {
             icon: '',
             link: ''
         },
+        icon: 'mdi-menu',
         etc: '',
     }),
     methods: {
@@ -77,7 +83,7 @@ export default {
         addMenu() {
             this.$store.commit('menu/pushIntoItems', {
                     title : this.name,
-                    icon : 'mdi-menu',
+                    icon : this.icon,
                     link : this.link,
                     etc : this.etc
             })

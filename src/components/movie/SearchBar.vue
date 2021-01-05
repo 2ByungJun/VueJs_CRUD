@@ -4,20 +4,20 @@
             v-model="title"
             outlined
             @keypress.enter = "searchMovies" >
-        <template v-slot:prepend-inner>
-            <v-icon
-                large
-                color="orange darken-2"
-                >mdi-cloud-search
-            </v-icon>
-        </template>
-        <template v-slot:append>
-            <v-progress-circular
-                v-if="loading"
-                size="24"
-                color="primary"
-                indeterminate />
-        </template>
+            <template v-slot:prepend-inner>
+                <v-icon
+                    large
+                    color="orange darken-2"
+                    >mdi-cloud-search
+                </v-icon>
+            </template>
+            <template v-slot:append>
+                <v-progress-circular
+                    v-if="loading"
+                    size="24"
+                    color="primary"
+                    indeterminate />
+            </template>
         </v-text-field>
     </div>
 </template>
@@ -53,7 +53,3 @@ export default {
     }
 }
 </script>
-
-<style>
-
-</style>

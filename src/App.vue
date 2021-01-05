@@ -1,9 +1,8 @@
 <template>
-  <v-app>
-
+  <v-app >
     <div class="layout-top">
       <!-- <v-img
-        src="@/img/banner.png"
+        src="@/img/backImage.jpg"
         max-height="200"
         max-width="50%"
       ></v-img> -->
@@ -21,7 +20,6 @@
         <router-view/>
       </div>
     </div>
-    
   </v-app>
 </template>
 
@@ -57,5 +55,8 @@ export default {
   }
   div.content{
     width: 80%
+  }
+  div.v-application.v-application--is-ltr.theme--light{
+    background-image: url("/img/backImage.e81961e5.jpg")
   }
 </style>
