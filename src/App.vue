@@ -57,6 +57,6 @@ export default {
     width: 80%
   }
   div.v-application.v-application--is-ltr.theme--light{
-    background-image: url("/img/backImage.e81961e5.jpg")
+    background-image: url("C:/Users/insilicogen/Desktop/VueAll/vue-crud/src/img/backImage.jpg")
   }
 </style>
