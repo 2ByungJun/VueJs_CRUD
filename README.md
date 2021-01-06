@@ -14,9 +14,11 @@ link : https://velog.io/@ieed0205/1-Vue-crud-Project
 
 ## Check List
 2020-01-06
-- [ ] 메뉴 삭제 DB로직
-- [ ] 메뉴 수정 DB로직
-- [ ] 메뉴 삽입 DB로직
+- [x] 메뉴 삭제 DB로직
+- [x] 메뉴 수정 DB로직
+- [x] 메뉴 삽입 DB로직
+- [] 메뉴 객체에 대한 store 통일시하게 변경
+- [] 메뉴 수정 List가 변경된 데이터가 새로고침이 안되는 상태
 
 2021-01-05
 - [x] Spring boot server 구축

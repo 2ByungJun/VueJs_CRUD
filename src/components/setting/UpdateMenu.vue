@@ -12,7 +12,7 @@
         >
             <v-card>
             <v-card-title>
-                <span class="headline">{{ formTitle }}</span>
+                <span class="headline">메뉴 수정</span>
             </v-card-title>
 
             <v-card-text>
@@ -42,6 +42,16 @@
                     cols="12"
                     sm="12"
                     md="4"
+                    >
+                    <v-text-field
+                        v-model="editedItem.icon"
+                        label="아이콘"
+                    ></v-text-field>
+                    </v-col>
+                    <v-col
+                    cols="12"
+                    sm="12"
+                    md="12"
                     >
                     <v-text-field
                         v-model="editedItem.etc"
@@ -112,40 +122,28 @@
 <script>
 export default {
     data: () => ({
-    dialog: false,
-    dialogDelete: false,
-    headers: [
-        { text: '메뉴명', align: 'start', sortable: false, value: 'title' },
-        { text: 'URL', value: 'link' },
-        { text: '비고', value: 'etc' },
-        { text: '수정/삭제', value: 'actions', sortable: false },
-    ],
-    desserts: [],
-    editedIndex: -1,
-    editedItem: {
-        title: '',
-        link: '',
-        icon: '',
-        etc: ''
-    },
-    defaultItem: {
-        title: '',
-        link: '',
-        icon: '',
-        etc: ''
-    },
-    item: {
-        title: '',
-        link: '',
-        icon: '',
-        etc: ''
-    }
-    }),
-    computed: {
-        formTitle () {
-            return this.editedIndex === -1 ? 'New Item' : '메뉴 수정'
+        dialog: false,
+        dialogDelete: false,
+        headers: [
+            { text: '메뉴명', align: 'start', sortable: false, value: 'title' },
+            { text: 'URL', value: 'link' },
+            { text: '비고', value: 'etc' },
+            { text: '수정/삭제', value: 'actions', sortable: false },
+        ],
+        desserts: [],
+        editedItem: {
+            title: '',
+            link: '',
+            icon: '',
+            etc: ''
+        },
+        defaultItem: {
+            title: '',
+            link: '',
+            icon: '',
+            etc: ''
         }
-    },
+    }),
     watch: {
         dialog (val) {
             val || this.close()
@@ -162,18 +160,15 @@ export default {
             this.desserts = this.$store.state.menu.items
         },
         editItem (item) {
-            this.editedIndex = this.desserts.indexOf(item)
             this.editedItem = Object.assign({}, item)
             this.dialog = true
         },
         deleteItem (item) {
-            this.editedIndex = this.desserts.indexOf(item)
             this.editedItem = Object.assign({}, item)
             this.dialogDelete = true
             this.item = item
         },
         deleteItemConfirm () {
-            this.desserts.splice(this.editedIndex, 1)
             /* delete DB */
             this.$store.dispatch('menu/deleteMenu', {item: this.editedItem})
             this.closeDelete()
@@ -181,23 +176,17 @@ export default {
         close () {
             this.dialog = false
             this.$nextTick(() => {
-            this.editedItem = Object.assign({}, this.defaultItem)
-            this.editedIndex = -1
+                this.editedItem = Object.assign({}, this.defaultItem)
             })
         },
         closeDelete () {
             this.dialogDelete = false
             this.$nextTick(() => {
-            this.editedItem = Object.assign({}, this.defaultItem)
-            this.editedIndex = -1
+                this.editedItem = Object.assign({}, this.defaultItem)
             })
         },
         save () {
-            if (this.editedIndex > -1) {
-                Object.assign(this.desserts[this.editedIndex], this.editedItem)
-            } else {
-                this.desserts.push(this.editedItem)
-            }
+            this.$store.dispatch('menu/updateMenu', {item: this.editedItem})
             this.close()
         },
     },

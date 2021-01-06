@@ -33,6 +33,17 @@ export default {
                 commit('updateState', res.data)
             })
         },
+        async updateMenu({commit}, data){
+            await axios.post('/vue/menu/updateMenu', {
+                seq : data.item.seq,
+                title : data.item.title,
+                icon : data.item.icon,
+                link : data.item.link,
+                etc : data.item.etc
+            }).then((res)=>{
+                commit('updateState', res.data)
+            })
+        },
     },
     getters: {
     }

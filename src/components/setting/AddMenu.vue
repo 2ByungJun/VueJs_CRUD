@@ -77,7 +77,7 @@ export default {
             this.$refs.form.reset()
         },
         addMenu() {
-            /* Insert DB */
+            /* insert DB */
             this.$store.dispatch('menu/insertMenu', {item: this.item})
         }
     },
