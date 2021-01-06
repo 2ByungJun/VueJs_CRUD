@@ -25,7 +25,7 @@ export default {
         }
     },
     created(){
-        this.$store.commit('menu/initMenuData')
+        this.$store.dispatch('menu/selectMenu')
     }
 }
 </script>

@@ -115,12 +115,7 @@ export default {
     dialog: false,
     dialogDelete: false,
     headers: [
-        {
-        text: '메뉴명',
-        align: 'start',
-        sortable: false,
-        value: 'title',
-        },
+        { text: '메뉴명', align: 'start', sortable: false, value: 'title' },
         { text: 'URL', value: 'link' },
         { text: '비고', value: 'etc' },
         { text: '수정/삭제', value: 'actions', sortable: false },
@@ -139,14 +134,18 @@ export default {
         icon: '',
         etc: ''
     },
+    item: {
+        title: '',
+        link: '',
+        icon: '',
+        etc: ''
+    }
     }),
-
     computed: {
         formTitle () {
             return this.editedIndex === -1 ? 'New Item' : '메뉴 수정'
-        },
+        }
     },
-
     watch: {
         dialog (val) {
             val || this.close()
@@ -155,57 +154,52 @@ export default {
             val || this.closeDelete()
         },
     },
-
-    created () {
+    created() {
         this.initialize()
     },
-
     methods: {
         initialize () {
             this.desserts = this.$store.state.menu.items
-    },
-
-    editItem (item) {
-        this.editedIndex = this.desserts.indexOf(item)
-        this.editedItem = Object.assign({}, item)
-        this.dialog = true
-    },
-
-    deleteItem (item) {
-        this.editedIndex = this.desserts.indexOf(item)
-        this.editedItem = Object.assign({}, item)
-        this.dialogDelete = true
-    },
-
-    deleteItemConfirm () {
-        this.desserts.splice(this.editedIndex, 1)
-        this.closeDelete()
-    },
-
-    close () {
-        this.dialog = false
-        this.$nextTick(() => {
-        this.editedItem = Object.assign({}, this.defaultItem)
-        this.editedIndex = -1
-        })
-    },
-
-    closeDelete () {
-        this.dialogDelete = false
-        this.$nextTick(() => {
-        this.editedItem = Object.assign({}, this.defaultItem)
-        this.editedIndex = -1
-        })
-    },
-
-    save () {
-        if (this.editedIndex > -1) {
-        Object.assign(this.desserts[this.editedIndex], this.editedItem)
-        } else {
-        this.desserts.push(this.editedItem)
-        }
-        this.close()
-    },
+        },
+        editItem (item) {
+            this.editedIndex = this.desserts.indexOf(item)
+            this.editedItem = Object.assign({}, item)
+            this.dialog = true
+        },
+        deleteItem (item) {
+            this.editedIndex = this.desserts.indexOf(item)
+            this.editedItem = Object.assign({}, item)
+            this.dialogDelete = true
+            this.item = item
+        },
+        deleteItemConfirm () {
+            this.desserts.splice(this.editedIndex, 1)
+            /* delete DB */
+            this.$store.dispatch('menu/deleteMenu', {item: this.editedItem})
+            this.closeDelete()
+        },
+        close () {
+            this.dialog = false
+            this.$nextTick(() => {
+            this.editedItem = Object.assign({}, this.defaultItem)
+            this.editedIndex = -1
+            })
+        },
+        closeDelete () {
+            this.dialogDelete = false
+            this.$nextTick(() => {
+            this.editedItem = Object.assign({}, this.defaultItem)
+            this.editedIndex = -1
+            })
+        },
+        save () {
+            if (this.editedIndex > -1) {
+                Object.assign(this.desserts[this.editedIndex], this.editedItem)
+            } else {
+                this.desserts.push(this.editedItem)
+            }
+            this.close()
+        },
     },
 }
 </script>

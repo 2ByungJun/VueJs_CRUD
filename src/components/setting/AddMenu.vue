@@ -5,27 +5,27 @@
     lazy-validation
     >
     <v-text-field
-        v-model="name"
+        v-model="item.title"
         :counter="6"
-        :rules="nameRules"
+        :rules="titleRules"
         label="메뉴명"
         required
     ></v-text-field>
 
     <v-text-field
-        v-model="link"
+        v-model="item.link"
         :rules="linkRules"
         label="URL"
         required
     ></v-text-field>
 
     <v-text-field
-        v-model="icon"
+        v-model="item.icon"
         label="아이콘"
     ></v-text-field>
 
     <v-text-field
-        v-model="etc"
+        v-model="item.etc"
         label="비고"
     ></v-text-field>
 
@@ -53,23 +53,19 @@
 export default {
     data: () => ({
         valid: true,
-        name: '',
-        nameRules: [
+        titleRules: [
             v => !!v || '메뉴명은 필수입니다.',
             v => (v && v.length <= 6) || '최대 6자까지 가능합니다.',
         ],
-        link: '',
         linkRules: [
             v => !!v || 'URL은 필수입니다.',
         ],
-        items: [],
         item: {
             title: '',
-            icon: '',
-            link: ''
-        },
-        icon: 'mdi-menu',
-        etc: '',
+            link: '/',
+            icon: 'mdi-menu',
+            etc: ''
+        }
     }),
     methods: {
         validate () {
@@ -81,12 +77,8 @@ export default {
             this.$refs.form.reset()
         },
         addMenu() {
-            this.$store.commit('menu/pushIntoItems', {
-                    title : this.name,
-                    icon : this.icon,
-                    link : this.link,
-                    etc : this.etc
-            })
+            /* Insert DB */
+            this.$store.dispatch('menu/insertMenu', {item: this.item})
         }
     },
 }
