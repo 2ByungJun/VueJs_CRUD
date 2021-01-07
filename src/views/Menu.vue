@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import MenuList from '../components/Menu/MenuList.vue'
+import MenuList from '../components/menu/MenuList.vue'
 
 export default {
     components: {
