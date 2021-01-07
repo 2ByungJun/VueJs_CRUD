@@ -130,7 +130,6 @@ export default {
             { text: '비고', value: 'etc' },
             { text: '수정/삭제', value: 'actions', sortable: false },
         ],
-        desserts: [],
         editedItem: {
             title: '',
             link: '',
@@ -144,6 +143,11 @@ export default {
             etc: ''
         }
     }),
+    computed: {
+        desserts(){
+            return this.$store.state.menu.items
+        }
+    },
     watch: {
         dialog (val) {
             val || this.close()
@@ -152,13 +156,7 @@ export default {
             val || this.closeDelete()
         },
     },
-    created() {
-        this.initialize()
-    },
     methods: {
-        initialize () {
-            this.desserts = this.$store.state.menu.items
-        },
         editItem (item) {
             this.editedItem = Object.assign({}, item)
             this.dialog = true
@@ -170,7 +168,7 @@ export default {
         },
         deleteItemConfirm () {
             /* delete DB */
-            this.$store.dispatch('menu/deleteMenu', {item: this.editedItem})
+            this.$store.dispatch('menu/deleteMenu', this.editedItem)
             this.closeDelete()
         },
         close () {
@@ -186,7 +184,8 @@ export default {
             })
         },
         save () {
-            this.$store.dispatch('menu/updateMenu', {item: this.editedItem})
+            /* update DB */
+            this.$store.dispatch('menu/updateMenu', this.editedItem)
             this.close()
         },
     },

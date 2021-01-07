@@ -78,7 +78,8 @@ export default {
         },
         addMenu() {
             /* insert DB */
-            this.$store.dispatch('menu/insertMenu', {item: this.item})
+            this.$store.dispatch('menu/insertMenu', this.item)
+            this.reset()
         }
     },
 }

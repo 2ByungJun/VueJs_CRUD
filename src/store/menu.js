@@ -17,30 +17,17 @@ export default {
             })
         },
         async insertMenu({commit}, data){
-            await axios.post('/vue/menu/insertMenu', {
-                title : data.item.title,
-                icon : data.item.icon,
-                link : data.item.link,
-                etc : data.item.etc
-            }).then((res)=>{
+            await axios.post('/vue/menu/insertMenu', data).then((res)=>{
                 commit('updateState', res.data)
             })
         },
         async deleteMenu({commit}, data){
-            await axios.post('/vue/menu/deleteMenu', {
-                seq : data.item.seq
-            }).then((res)=>{
+            await axios.post('/vue/menu/deleteMenu', data).then((res)=>{
                 commit('updateState', res.data)
             })
         },
         async updateMenu({commit}, data){
-            await axios.post('/vue/menu/updateMenu', {
-                seq : data.item.seq,
-                title : data.item.title,
-                icon : data.item.icon,
-                link : data.item.link,
-                etc : data.item.etc
-            }).then((res)=>{
+            await axios.post('/vue/menu/updateMenu', data).then((res)=>{
                 commit('updateState', res.data)
             })
         },
